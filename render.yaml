@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: diet-coach-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+```
+
+---
+
+**Fichier 4 — `.env.example`**
+Nom : `.env.example`
+Contenu à coller :
+```
+ANTHROPIC_API_KEY=sk-ant-votre-cle-ici
+TWILIO_ACCOUNT_SID=ACvotre-sid-ici
+TWILIO_AUTH_TOKEN=votre-token-ici
+PORT=5000
